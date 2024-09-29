@@ -66,3 +66,15 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+.screenshot-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.screenshot {
+    max-height: 20vh; /* Restrict height to 20% of viewport height */
+    width: auto;
+    cursor: pointer;
+}
+
