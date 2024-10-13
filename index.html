@@ -17,8 +17,14 @@
 <!-- Screenshot section -->
 <section>
     <div class="screenshot-container">
+        <a href="img/splash-screen.png" target="_blank">
+            <img src="img/splash-screen.png" alt="MediApp Splash Screen" class="screenshot">
+        </a>
         <a href="img/main-screen.png" target="_blank">
             <img src="img/main-screen.png" alt="Main Screen" class="screenshot">
+        </a>
+        <a href="img/language-settings.png" target="_blank">
+            <img src="img/language-settings.png" alt="Language Settings" class="screenshot">
         </a>
     </div>
 </section>
@@ -119,6 +125,56 @@
 
     <h3>Resumen:</h3>
     <p>En esta etapa, se ha completado la pantalla de carga, la maquetación de la pantalla principal y el selector de idioma. Los próximos pasos se centrarán en la funcionalidad del organizador de pastillas, la gestión de medicación y la integración completa con el micro:bit.</p>
+</section>
+
+<!-- Informe de Avance 3 -->
+<section>
+    <h2>Informe de Avance 3</h2>
+    <p><strong>Nombre del Proyecto:</strong> MediApp</p>
+
+    <h3>Actividades Realizadas y Decisiones Tomadas:</h3>
+    <ul>
+        <li><strong>Implementación de la Conectividad Bluetooth con el dispositivo micro:bit</strong>
+            <p>Se ha implementado la funcionalidad para escanear y conectar dispositivos Bluetooth, específicamente micro:bit. Se maneja la conexión, reconexión automática y el envío de mensajes de prueba entre la aplicación y el micro:bit, con feedback visual y de sonido en el dispositivo.</p>
+            <p>Código relevante: <a href="https://github.com/konrad-molitor/mediapp/pull/4">pull request</a></p>
+        </li>
+        <li><strong>Gestión y Configuración del Organizador de Pastillas (Pillbox)</strong>
+            <p>Se ha implementado la pantalla de configuración del organizador de pastillas. Los usuarios pueden definir el número de filas y celdas por fila, lo que se reflejará automáticamente en una vista previa interactiva.</p>
+            <p>Código relevante: <a href="https://github.com/konrad-molitor/mediapp/pull/5">pull request</a></p>
+        </li>
+        <li><strong>Generación de Etiquetas para el Organizador en formato PDF</strong>
+            <p>Ahora es posible descargar un PDF con las etiquetas correspondientes a las celdas del organizador, manteniendo la disposición configurada. Este PDF está diseñado para ser impreso y pegado en los compartimentos del organizador.</p>
+            <p>Código relevante: <a href="https://github.com/konrad-molitor/mediapp/pull/6">pull request</a></p>
+        </li>
+        <li><strong>Componente de Vista Previa del Organizador de Pastillas</strong>
+            <p>Se creó un componente reutilizable que muestra la disposición actual del organizador de pastillas con etiquetas personalizadas en cada celda. Este componente ajusta dinámicamente la disposición para tamaños grandes de organizador y permite interacciones con las celdas.</p>
+            <p>Código relevante: <a href="https://github.com/konrad-molitor/mediapp/pull/5">pull request</a></p>
+        </li>
+    </ul>
+
+    <h3>Avances:</h3>
+    <ul>
+        <li><strong>Conexión Bluetooth establecida:</strong> La app puede escanear, conectar y gestionar la comunicación con el micro:bit de manera confiable, incluyendo reconexiones automáticas.</li>
+        <li><strong>Gestión del Organizador de Pastillas:</strong> Implementación de una pantalla de configuración con vista previa dinámica de las celdas del organizador.</li>
+        <li><strong>Generación de PDF:</strong> Los usuarios pueden descargar etiquetas en formato PDF para ser utilizadas en un organizador físico.</li>
+    </ul>
+
+    <h3>Dificultades:</h3>
+    <ul>
+        <li>La gestión de la conectividad Bluetooth implicó varios desafíos técnicos, como problemas con UUID incorrectos y reconexiones tras la desconexión inesperada.</li>
+        <li>El diseño adaptativo del componente de vista previa del organizador de pastillas fue complejo para garantizar que se mantuviera visualmente coherente en diferentes dispositivos.</li>
+    </ul>
+
+    <h3>Cronograma de Actividades:</h3>
+    <p>Próximos pasos:</p>
+    <ul>
+        <li>Mejorar la gestión de la medicación y su asignación a las celdas del organizador.</li>
+        <li>Implementar recordatorios sincronizados con el micro:bit para notificar a los pacientes cuándo tomar su medicación.</li>
+        <li>Continuar optimizando la interacción entre la aplicación y el dispositivo micro:bit.</li>
+    </ul>
+
+    <h3>Resumen:</h3>
+    <p>En esta fase, se ha logrado integrar la conectividad Bluetooth, la gestión de un organizador de pastillas personalizable y la generación de etiquetas en formato PDF. Estos avances han proporcionado una base sólida para la funcionalidad clave de MediApp, que ayudará a los pacientes a tomar sus medicamentos de manera oportuna y con asistencia externa.</p>
 </section>
 
 <footer>
