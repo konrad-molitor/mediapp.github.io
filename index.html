@@ -14,9 +14,16 @@
     <p>Recordatorio de medicamentos y actividades para pacientes con Alzheimer</p>
 </header>
 
+<section style="border: 2px solid red; padding: 1em; background-color: #ffe6e6; color: #990000;">
+    <h2>Aviso Importante</h2>
+    <p><strong>Nota:</strong> MediApp es un proyecto educativo y no está diseñado ni probado para su uso en el cuidado de pacientes reales. Su propósito es ilustrar el potencial de las aplicaciones de tecnología en el apoyo a personas con Alzheimer, pero no debe utilizarse como un sustituto de sistemas de cuidado profesional. Los cuidadores y profesionales médicos deben recurrir a herramientas y equipos probados para cualquier tipo de cuidado de salud.</p>
+</section>
+
 <!-- Screenshot section -->
+<!-- Screenshot Gallery Section -->
 <section>
     <div class="screenshot-container">
+        <!-- Existing Screenshots -->
         <a href="img/splash-screen.png" target="_blank">
             <img src="img/splash-screen.png" alt="MediApp Splash Screen" class="screenshot">
         </a>
@@ -37,6 +44,24 @@
         </a>
         <a href="img/device-connect.jpg" target="_blank">
             <img src="img/device-connect.jpg" alt="Device Connection" class="screenshot">
+        </a>
+        <a href="img/add-med.jpg" target="_blank">
+            <img src="img/add-med.jpg" alt="Add Medication" class="screenshot">
+        </a>
+        <a href="img/assign-med.jpg" target="_blank">
+            <img src="img/assign-med.jpg" alt="Assign Medication" class="screenshot">
+        </a>
+        <a href="img/background-service.jpg" target="_blank">
+            <img src="img/background-service.jpg" alt="Background Service" class="screenshot">
+        </a>
+        <a href="img/full-screen-notification.jpg" target="_blank">
+            <img src="img/full-screen-notification.jpg" alt="Full-Screen Notification" class="screenshot">
+        </a>
+        <a href="img/main-screen-meds.jpg" target="_blank">
+            <img src="img/main-screen-meds.jpg" alt="Main Screen with Medications" class="screenshot">
+        </a>
+        <a href="img/med-list.jpg" target="_blank">
+            <img src="img/med-list.jpg" alt="Medication List" class="screenshot">
         </a>
     </div>
 </section>
@@ -68,8 +93,10 @@
         <li>El cuidador introduce la disposición del organizador de pastillas y programa los horarios.</li>
         <li>Los recordatorios se muestran en la aplicación Android y se envían al dispositivo <code>micro:bit</code>.</li>
         <li>Compatibilidad multilingüe: Inglés, Español, y Ruso.</li>
+        <li>Para más detalles técnicos sobre la arquitectura y diseño, consulte el <a href="technical-design.html" target="_blank">Diseño Técnico del Proyecto</a>.</li>
     </ul>
 </section>
+
 
 <!-- Informe de Avance 1 -->
 <section>
@@ -149,6 +176,14 @@
         <li><strong>Implementación de la Conectividad Bluetooth con el dispositivo micro:bit</strong>
             <p>Se ha implementado la funcionalidad para escanear y conectar dispositivos Bluetooth, específicamente micro:bit. Se maneja la conexión, reconexión automática y el envío de mensajes de prueba entre la aplicación y el micro:bit, con feedback visual y de sonido en el dispositivo.</p>
             <p>Código relevante: <a href="https://github.com/konrad-molitor/mediapp/pull/4">pull request</a></p>
+
+            <!-- Centered and padded video embed -->
+            <div style="display: flex; justify-content: center; padding: 20px;">
+                <video width="600" controls>
+                    <source src="img/microbit_connection.mp4" type="video/mp4">
+                    Su navegador no soporta la reproducción de videos.
+                </video>
+            </div>
         </li>
         <li><strong>Gestión y Configuración del Organizador de Pastillas (Pillbox)</strong>
             <p>Se ha implementado la pantalla de configuración del organizador de pastillas. Los usuarios pueden definir el número de filas y celdas por fila, lo que se reflejará automáticamente en una vista previa interactiva.</p>
@@ -188,6 +223,70 @@
     <h3>Resumen:</h3>
     <p>En esta fase, se ha logrado integrar la conectividad Bluetooth, la gestión de un organizador de pastillas personalizable y la generación de etiquetas en formato PDF. Estos avances han proporcionado una base sólida para la funcionalidad clave de MediApp, que ayudará a los pacientes a tomar sus medicamentos de manera oportuna y con asistencia externa.</p>
 </section>
+
+<!-- Informe de Avance 4 -->
+<section>
+    <h2>Informe de Avance 4</h2>
+    <p><strong>Nombre del Proyecto:</strong> MediApp</p>
+
+    <h3>Actividades Realizadas y Decisiones Tomadas:</h3>
+    <ul>
+        <li><strong>Funcionalidad de Añadir Medicación</strong>
+            <p>Se realizó una refactorización de las entidades y se agregó una lista de medicación, junto con un modal para editar la medicación y un modal para asignarla a las celdas del organizador de pastillas. Además, se actualizó el componente de vista previa del organizador para servir como herramienta visual de asignación y se añadió la funcionalidad a la pantalla principal, permitiendo ver las medicinas actuales en la tarjeta de “Medicación”.</p>
+            <p>Código relevante: <a href="https://github.com/konrad-molitor/mediapp/pull/8">pull request</a></p>
+            <a href="img/add-med.jpg" target="_blank"><img src="img/add-med.jpg" alt="Add Medication" class="screenshot"></a>
+            <a href="img/assign-med.jpg" target="_blank"><img src="img/assign-med.jpg" alt="Assign Medication" class="screenshot"></a>
+        </li>
+        <li><strong>Notificaciones en Pantalla Completa</strong>
+            <p>Se implementó una actividad de notificación en pantalla completa con estilo de reloj despertador, junto con la lógica para programar y reprogramar estas notificaciones.</p>
+            <p>Código relevante: <a href="https://github.com/konrad-molitor/mediapp/pull/9">pull request</a></p>
+            <a href="img/full-screen-notification.jpg" target="_blank"><img src="img/full-screen-notification.jpg" alt="Full-Screen Notification" class="screenshot"></a>
+        </li>
+        <li><strong>Servicio en Segundo Plano para Conexión con micro:bit</strong>
+            <p>La lógica de conexión Bluetooth se trasladó a un servicio en segundo plano para manejar las conexiones con el dispositivo micro:bit. Este servicio permite una comunicación más estable y gestiona todos los aspectos relacionados con Bluetooth.</p>
+            <p>Código relevante: <a href="https://github.com/konrad-molitor/mediapp/pull/10">pull request</a></p>
+            <a href="img/background-service.jpg" target="_blank"><img src="img/background-service.jpg" alt="Background Service" class="screenshot"></a>
+        </li>
+        <li><strong>Refinamiento de la Lógica de Conectividad con micro:bit</strong>
+            <p>Se mejoró la lógica de conectividad del micro:bit, añadiendo escucha de eventos del micro:bit en la aplicación, además de actualizar el programa de micro:bit para mejorar la experiencia del usuario en las notificaciones y enviar señales de los botones.</p>
+            <p>Código relevante: <a href="https://github.com/konrad-molitor/mediapp/pull/11">pull request</a></p>
+        </li>
+    </ul>
+
+    <h3>Avances:</h3>
+    <ul>
+        <li><strong>Funcionalidad Principal Completa:</strong> La aplicación ahora soporta el flujo principal, incluyendo la adición de medicamentos, la asignación a celdas del organizador y la visualización en la pantalla principal.</li>
+        <li><strong>Notificaciones en Pantalla Completa:</strong> Se logró implementar notificaciones en pantalla completa para recordatorios importantes, con programación y reprogramación según las necesidades del usuario.</li>
+        <li><strong>Conectividad con micro:bit:</strong> La lógica de conexión se trasladó exitosamente a un servicio en segundo plano, logrando una integración continua con el micro:bit.</li>
+
+        <div style="display: flex; justify-content: center; padding: 20px;">
+            <video width="600" controls>
+                <source src="img/flow.mov" type="video/mp4">
+                Su navegador no soporta la reproducción de videos.
+            </video>
+        </div>
+    </ul>
+
+    <h3>Dificultades:</h3>
+    <ul>
+        <li>La implementación de actividades de notificación en pantalla completa en estilo de alarma resultó ser un desafío considerable en React Native.</li>
+        <li>Hubo múltiples problemas al pasar datos a la actividad de notificación en pantalla completa, que se resolvieron usando almacenamiento asíncrono como solución alternativa.</li>
+        <li>La lógica inicial de conectividad Bluetooth resultó demasiado compleja y presentaba errores, por lo que tuvo que ser reimplementada desde cero.</li>
+        <li>La arquitectura impulsada por eventos para la comunicación con el servicio en segundo plano presentó varios desafíos en su implementación y uso.</li>
+    </ul>
+
+    <h3>Cronograma de Actividades:</h3>
+    <p>Próximos pasos:</p>
+    <ul>
+        <li>Depuración de la funcionalidad existente.</li>
+        <li>Optimización de la lógica de notificación y conectividad Bluetooth.</li>
+        <li>Creación de materiales de demostración y documentos finales del proyecto.</li>
+    </ul>
+
+    <h3>Resumen:</h3>
+    <p>En esta etapa, se ha completado la funcionalidad principal de MediApp, incluyendo la adición de medicamentos, la asignación visual a celdas del organizador, la implementación de notificaciones en pantalla completa y el manejo completo de la conectividad con micro:bit desde un servicio en segundo plano. Estos avances proporcionan una base completa y robusta para el funcionamiento de MediApp, permitiendo su uso para recordar medicamentos y actividades importantes. Los próximos pasos estarán centrados en la depuración y la optimización de la aplicación.</p>
+</section>
+
 
 <footer>
     <p>CETP-UTU | Instituto Tecnológico de Informática | Tecnicatura en Redes y Software | Ismail Valiev TA2 | <i class="fas fa-envelope"></i> <a href="mailto:molitor.konrad@gmail.com">Contacto</a></p>

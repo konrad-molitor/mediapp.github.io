@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediApp - Documentación Técnica</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Documentación Técnica - MediApp</h1>
+    <p>Aplicación para recordatorio de medicamentos y actividades en pacientes con Alzheimer</p>
+</header>
+
+<section style="border: 2px solid red; padding: 1em; background-color: #ffe6e6; color: #990000;">
+    <h2>Aviso Importante</h2>
+    <p><strong>Nota:</strong> MediApp es un proyecto educativo y no está diseñado ni probado para su uso en el cuidado de pacientes reales. Su propósito es ilustrar el potencial de las aplicaciones de tecnología en el apoyo a personas con Alzheimer, pero no debe utilizarse como un sustituto de sistemas de cuidado profesional. Los cuidadores y profesionales médicos deben recurrir a herramientas y equipos probados para cualquier tipo de cuidado de salud.</p>
+</section>
+
+<section>
+    <h2>Descripción Técnica de la Solución</h2>
+    <p><strong>MediApp</strong> es una aplicación Android desarrollada con React Native que permite a cuidadores configurar recordatorios de medicación para pacientes con Alzheimer. La solución consiste en una aplicación móvil que envía alertas y un programa en micro:bit que muestra notificaciones visuales y sonoras.</p>
+    <p><ol>
+    <li><strong>Configuración del Organizador de Pastillas:</strong>
+        El usuario, generalmente un cuidador, configura el organizador de pastillas especificando el número de filas y columnas.
+    </li>
+
+    <li><strong>Generación de Etiquetas en PDF:</strong>
+        Una vez configurado el organizador, el usuario puede generar un archivo PDF que contiene etiquetas identificativas para cada celda del organizador. Este PDF puede imprimirse y colocar las etiquetas en las celdas del organizador físico.
+    </li>
+
+    <li><strong>Creación de Medicamentos:</strong>
+        El usuario registra cada medicamento, especificando el nombre y la frecuencia de administración. La administración puede programarse por fechas y horas específicas o a intervalos regulares.
+    </li>
+
+    <li><strong>Asignación de Medicamentos al Organizador:</strong>
+        Luego, el usuario asigna cada medicamento a una celda del organizador configurado, colocando físicamente el medicamento en la celda correspondiente.
+    </li>
+
+    <li><strong>Notificación de Toma de Medicamentos:</strong>
+        Cuando es hora de tomar el medicamento, la aplicación envía una notificación en pantalla completa al dispositivo Android, mostrando la etiqueta de la celda y el nombre del medicamento. Simultáneamente, el dispositivo micro:bit muestra la etiqueta de la celda y emite una alerta sonora para informar al paciente.
+    </li>
+
+    <li><strong>Interacción con la Notificación:</strong>
+        El paciente puede posponer la notificación hasta dos veces, usando el botón en el micro:bit o en la pantalla del teléfono. Alternativamente, el paciente puede confirmar que el medicamento ha sido tomado, lo cual actualiza el estado del medicamento en la aplicación.
+    </li>
+
+    <li><strong>Uso del Servicio en Segundo Plano:</strong>
+        La aplicación mantiene una conexión continua con el micro:bit mediante un servicio en segundo plano, asegurando que las notificaciones se envíen correctamente y se reciban los comandos del micro:bit.
+    </li>
+</ol></p>
+</section>
+
+<section>
+    <h2>Listado de Materiales y Herramientas</h2>
+    <ul>
+        <li><strong>Dispositivos Físicos:</strong></li>
+        <ul>
+            <li><a href="https://microbit.org/" target="_blank">Micro:bit v2.1</a> - 1 unidad</li>
+            <li>Estuche de baterías AAA para el micro:bit (portabilidad)</li>
+            <li>Cable USB-A a microUSB (para programar y conectar el micro:bit)</li>
+            <li>Cable USB-A a USB-C (para conectar el teléfono Android al Mac)</li>
+            <li>Teléfono Android para pruebas</li>
+        </ul>
+
+        <li><strong>Software y Librerías:</strong></li>
+        <ul>
+            <li><a href="https://reactnative.dev/" target="_blank">React Native</a> con TypeScript y algo de Kotlin (para desarrollo de la aplicación Android)</li>
+            <li><a href="https://notifee.app/" target="_blank">Notifee</a> (gestión de notificaciones programadas y en pantalla completa)</li>
+            <li><a href="https://github.com/christopherdro/react-native-html-to-pdf" target="_blank">React Native HTML-to-PDF</a> (para generación de PDF de etiquetas del organizador de pastillas)</li>
+            <li><a href="https://lodash.com/" target="_blank">Lodash</a> (para funcionalidades como debounce)</li>
+            <li><a href="https://date-fns.org/" target="_blank">Date-fns</a> (formato de fechas localizadas)</li>
+            <li><a href="https://fontawesome.com/" target="_blank">Font Awesome</a> (iconos de la interfaz)</li>
+        </ul>
+
+        <li><strong>Herramientas de Desarrollo:</strong></li>
+        <ul>
+            <li><a href="https://www.jetbrains.com/webstorm/" target="_blank">JetBrains WebStorm</a> y <a href="https://developer.android.com/studio" target="_blank">Android Studio</a> como IDEs</li>
+            <li><a href="https://git-scm.com/" target="_blank">Git</a> y <a href="https://github.com/" target="_blank">GitHub</a> para control de versiones y almacenamiento de repositorio</li>
+            <li><a href="https://github.com/features/actions" target="_blank">GitHub Actions</a> para generación de APK en builds nocturnos</li>
+            <li><a href="https://makecode.microbit.org/" target="_blank">Microsoft MakeCode</a> (editor para el código de micro:bit)</li>
+            <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a> como asistente de codificación</li>
+            <li><a href="https://openart.ai/" target="_blank">DALL-E</a> para generar un icono personalizado para MediApp</li>
+            <li><a href="https://chatgpt.com/" target="_blank">ChatGPT 4o, o1, o1-mini</a> como consultor y asistente de traducción y documentación</li>
+        </ul>
+    </ul>
+</section>
+
+<section>
+    <h2>Diseño Técnico de la Aplicación</h2>
+    <p>La aplicación <strong>MediApp</strong> sigue principalmente el patrón de arquitectura <strong>MVC (Modelo-Vista-Controlador)</strong>, organizando la lógica de negocio, la gestión de datos y la presentación en componentes separados para mantener la claridad y escalabilidad del código.</p>
+
+    <h3>Componentes Principales</h3>
+    <ul>
+        <li><strong>React Contexts:</strong>
+            Se utilizan varios contextos de React para mantener los datos sincronizados a lo largo de la aplicación. Esto permite compartir y actualizar el estado entre diferentes componentes de manera eficiente, asegurando que los cambios en la configuración de pastillas, los medicamentos y los recordatorios se reflejen en toda la aplicación.
+        </li>
+
+        <li><strong>Almacenamiento Permanente con Async Storage:</strong>
+            La aplicación emplea Async Storage para almacenar datos de manera persistente, garantizando que la configuración del organizador de pastillas y los registros de medicamentos permanezcan disponibles después de cerrar la aplicación. Las entidades se almacenan como JSON, utilizando UUIDs como identificadores para evitar referencias circulares.
+        </li>
+
+        <li><strong>Entidades Clave:</strong>
+            La lógica de datos de la aplicación se centra en tres entidades principales:
+            <ul>
+                <li><strong>Pillbox (Organizador de Pastillas):</strong> Define la estructura del organizador de pastillas (filas y columnas) y los elementos que contiene.</li>
+                <li><strong>Medication (Medicamento):</strong> Registra los detalles de cada medicamento, incluyendo nombre, dosis, y horario.</li>
+                <li><strong>PBCell (Celda de Organizador):</strong> Representa cada celda dentro del organizador de pastillas, asociada a un medicamento específico en una posición particular.</li>
+            </ul>
+        </li>
+
+        <li><strong>Comunicación con el micro:bit mediante Bluetooth UART:</strong>
+            La comunicación con el dispositivo micro:bit se realiza a través del servicio UART de Bluetooth, permitiendo el envío y recepción de datos. Esto permite que el dispositivo micro:bit muestre notificaciones y reciba respuestas del usuario, como posponer o confirmar la toma de un medicamento.
+        </li>
+
+        <li><strong>Servicio en Segundo Plano para la Conexión Bluetooth:</strong>
+            La lógica Bluetooth se gestiona completamente dentro de un servicio en segundo plano, que mantiene la conexión con el micro:bit y gestiona la transmisión de datos. Este enfoque asegura que la conexión Bluetooth permanezca activa y confiable, incluso si la aplicación está en segundo plano.
+        </li>
+
+        <li><strong>Comunicación entre Actividades y el Servicio en Segundo Plano:</strong>
+            Dado que la lógica Bluetooth reside en el servicio en segundo plano, las actividades en la aplicación se comunican con este servicio mediante un EventEmitter. Este diseño basado en eventos permite que las actividades envíen y reciban actualizaciones de estado, garantizando una experiencia de usuario fluida.
+        </li>
+    </ul>
+
+    <h3>Consideraciones Adicionales de Diseño</h3>
+    <ul>
+        <li><strong>Uso de UUIDs:</strong>
+            Todas las entidades en la aplicación se identifican mediante UUIDs. Esto facilita el almacenamiento de datos en JSON y evita referencias circulares, que pueden causar problemas de almacenamiento y recuperación de datos.
+        </li>
+
+        <li><strong>Patrón de Arquitectura MVC:</strong>
+            La separación de responsabilidades a través del patrón MVC simplifica el mantenimiento del código y mejora la escalabilidad de la aplicación, permitiendo agregar nuevas características de manera más estructurada.
+        </li>
+
+        <li><strong>Soporte de Notificaciones en Pantalla Completa:</strong>
+            El diseño de la aplicación soporta notificaciones estilo alarma en pantalla completa, cruciales para los recordatorios. Este componente se implementa cuidadosamente para superar las limitaciones de React Native en cuanto a actividades de notificación.
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h2>Fotografías</h2>
+    <div class="screenshot-container">
+        <a href="img/splash-screen.png" target="_blank"><img src="img/splash-screen.png" alt="Pantalla de carga de MediApp" class="screenshot"></a>
+        <a href="img/main-screen.png" target="_blank"><img src="img/main-screen.png" alt="Pantalla principal" class="screenshot"></a>
+        <a href="img/language-settings.png" target="_blank"><img src="img/language-settings.png" alt="Configuración de idioma" class="screenshot"></a>
+        <a href="img/pillbox-configuration.jpg" target="_blank"><img src="img/pillbox-configuration.jpg" alt="Configuración del organizador de pastillas" class="screenshot"></a>
+        <a href="img/main-screen-with-pb-preview.jpg" target="_blank"><img src="img/main-screen-with-pb-preview.jpg" alt="Vista previa del organizador de pastillas" class="screenshot"></a>
+        <a href="img/share-labels-pdf.jpg" target="_blank"><img src="img/share-labels-pdf.jpg" alt="Etiquetas PDF del organizador de pastillas" class="screenshot"></a>
+        <a href="img/device-connect.jpg" target="_blank"><img src="img/device-connect.jpg" alt="Conexión de dispositivos" class="screenshot"></a>
+        <a href="img/add-med.jpg" target="_blank"><img src="img/add-med.jpg" alt="Añadir medicamento" class="screenshot"></a>
+        <a href="img/assign-med.jpg" target="_blank"><img src="img/assign-med.jpg" alt="Asignar medicamento" class="screenshot"></a>
+        <a href="img/background-service.jpg" target="_blank"><img src="img/background-service.jpg" alt="Servicio en segundo plano" class="screenshot"></a>
+        <a href="img/full-screen-notification.jpg" target="_blank"><img src="img/full-screen-notification.jpg" alt="Notificación en pantalla completa" class="screenshot"></a>
+        <a href="img/main-screen-meds.jpg" target="_blank"><img src="img/main-screen-meds.jpg" alt="Pantalla principal con medicamentos" class="screenshot"></a>
+        <a href="img/med-list.jpg" target="_blank"><img src="img/med-list.jpg" alt="Lista de medicamentos" class="screenshot"></a>
+    </div>
+</section>
+
+<section>
+    <h2>Código Fuente</h2>
+    <p>El código fuente de MediApp está disponible en el repositorio de GitHub, donde se puede acceder a la aplicación completa para Android y al programa para el dispositivo micro:bit.</p>
+
+    <ul>
+        <li><strong>Repositorio de la aplicación Android:</strong>
+            <a href="https://github.com/konrad-molitor/mediapp" target="_blank">https://github.com/konrad-molitor/mediapp</a>
+        </li>
+        <li><strong>Versiones y lanzamientos:</strong>
+            <a href="https://github.com/konrad-molitor/mediapp/tags" target="_blank">https://github.com/konrad-molitor/mediapp/tags</a>
+        </li>
+        <li><strong>Programa para micro:bit:</strong> Disponible en el mismo repositorio dentro de la carpeta <code>microbit/</code>, el programa para micro:bit está escrito en TypeScript y permite la conexión Bluetooth y la recepción de notificaciones visuales y sonoras.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Pruebas y Resultados</h2>
+
+    <h3>Supuestos de Diseño para Apoyar a Pacientes con Alzheimer</h3>
+    <p>Al diseñar MediApp, nos enfocamos en crear una solución que aborde directamente las dificultades cotidianas que enfrentan los pacientes con Alzheimer, centrándonos en la simplicidad, la claridad y la accesibilidad. Las decisiones de diseño se tomaron para asegurar que la aplicación sea intuitiva y útil tanto para los pacientes como para sus cuidadores.</p>
+    <ul>
+        <li><strong>Medicamento Único por Celda:</strong>
+            Cada celda del organizador de pastillas está limitada a un solo medicamento. Esto ayuda a reducir la confusión que podría surgir si se mezclaran varias medicaciones en una misma celda, haciendo más fácil para el paciente identificar la dosis correcta en cada toma.
+        </li>
+
+        <li><strong>Notificaciones en Pantalla Completa:</strong>
+            Las notificaciones de la aplicación están diseñadas para ocupar toda la pantalla y parecer una alarma, asegurando que el recordatorio sea visible incluso si el teléfono está bloqueado. Esto facilita que el paciente vea el recordatorio sin perderse detalles críticos.
+        </li>
+
+        <li><strong>Conectividad Continua con micro:bit:</strong>
+            El dispositivo micro:bit actúa como un recordatorio portátil que emite alertas visuales y sonoras. Una conexión Bluetooth en segundo plano asegura que el micro:bit esté siempre sincronizado con la aplicación, manteniendo al paciente informado incluso si el teléfono no está en uso activo.
+        </li>
+
+        <li><strong>Interfaz Multilingüe y Adaptativa:</strong>
+            La aplicación ofrece soporte multilingüe para inglés, español y ruso. Además, la selección de idioma se guarda de forma persistente, de modo que no es necesario volver a configurarla, lo que facilita su uso en diferentes contextos y evita la confusión.
+        </li>
+    </ul>
+
+    <h3>Dificultades y Soluciones Implementadas</h3>
+    <ul>
+        <li><strong>Gestión de Conectividad sin Emulador:</strong>
+            Sin un emulador para simular la conectividad Bluetooth, las pruebas debieron realizarse con el hardware real, lo que incrementó el tiempo de desarrollo. Para minimizar el impacto en el usuario final, la aplicación mantiene una conexión constante con el micro:bit en segundo plano, permitiendo una reconexión automática y rápida.
+        </li>
+
+        <li><strong>Notificaciones Persistentes en Modo "No Molestar":</strong>
+            Para asegurarnos de que las notificaciones no pasen desapercibidas, diseñamos una actividad de pantalla completa estilo alarma que sobresale de otras aplicaciones y funciones del teléfono. Incluso en modo “No Molestar”, estas notificaciones son visibles para el paciente o cuidador.
+        </li>
+
+        <li><strong>Arquitectura Basada en Eventos para Sincronización:</strong>
+            Implementamos una arquitectura de eventos para la comunicación entre el servicio en segundo plano y las actividades principales de la aplicación. Esto permite que las notificaciones, el estado de la conexión y las respuestas del micro:bit lleguen sincrónicamente, brindando una experiencia de usuario sin interrupciones.
+        </li>
+
+        <li><strong>Diseño Adaptativo para el Organizador de Pastillas:</strong>
+            La vista previa del organizador de pastillas se adaptó para ser clara y accesible, independientemente del tamaño del organizador. Con etiquetas únicas por celda, el diseño es intuitivo, ayudando a los pacientes a identificar fácilmente cada dosis.
+        </li>
+    </ul>
+
+    <h3>Resultados</h3>
+    <ul>
+        <li><strong>Conectividad Bluetooth Estable:</strong>
+            La aplicación mantiene una conexión estable y confiable con el micro:bit, logrando que el paciente reciba alertas portátiles en el dispositivo y pueda responderlas mediante los botones del micro:bit.
+        </li>
+
+        <li><strong>Notificaciones Claras y Efectivas:</strong>
+            Las notificaciones de pantalla completa en estilo alarma permiten al paciente ver claramente la medicación que debe tomar, la celda en el organizador donde se encuentra y la opción de posponer o confirmar la toma.
+        </li>
+
+        <li><strong>Interfaz de Configuración del Organizador:</strong>
+            La interfaz adaptativa permite a los cuidadores organizar el organizador de pastillas y asignar medicamentos de manera visual y ordenada, haciendo el proceso más intuitivo para los pacientes.
+        </li>
+
+        <li><strong>Generación de Etiquetas en PDF:</strong>
+            Las etiquetas en PDF ayudan a los cuidadores a organizar físicamente el organizador, permitiendo que el paciente relacione visualmente las alertas de la aplicación y el micro:bit con la celda correcta en el organizador.
+        </li>
+
+        <li><strong>Soporte Multilingüe Persistente:</strong>
+            La persistencia de idioma permite a la aplicación adaptarse a varios entornos culturales y lingüísticos sin necesidad de configuraciones repetidas, lo cual beneficia tanto a pacientes como a cuidadores.
+        </li>
+    </ul>
+
+    <p>En conjunto, estas características hacen que MediApp sea una herramienta confiable y accesible para ayudar a los pacientes con Alzheimer a tomar su medicación de forma segura y efectiva. La aplicación facilita tanto a los pacientes como a los cuidadores la organización y el recordatorio de la medicación, aprovechando tecnología portátil y notificaciones visuales y auditivas.</p>
+</section>
+
+<section>
+    <h2>Diseño del Flujo Principal</h2>
+    <p>El flujo principal de MediApp se desarrolló con el objetivo de crear una solución accesible y fácil de usar para pacientes con Alzheimer y sus cuidadores. A continuación, se describen los elementos clave del diseño y las razones detrás de cada decisión:</p>
+
+    <h3>Organizador de Pastillas Personalizable</h3>
+    <p>La estructura del organizador de pastillas permite a los cuidadores configurar el número de filas y columnas de acuerdo con la necesidad del paciente, manteniendo así un diseño adaptable. Este organizador visualiza cada dosis de manera única, lo cual facilita que el paciente encuentre y tome la medicación sin confundirse.</p>
+
+    <h3>Generación de Etiquetas en PDF</h3>
+    <p>Para aumentar la claridad y reducir el riesgo de error, MediApp ofrece una función para generar etiquetas en PDF para cada celda del organizador. Estas etiquetas están personalizadas con identificadores únicos, como “A1” o “B2”, y pueden imprimirse y colocarse en el organizador físico. De este modo, el paciente puede asociar visualmente la medicación con la celda correcta cada vez que recibe una notificación.</p>
+
+    <h3>Vista Previa del Organizador en la Aplicación</h3>
+    <p>La vista previa del organizador de pastillas en la aplicación permite a los cuidadores visualizar la disposición de los medicamentos antes de la impresión de etiquetas y la asignación física de las dosis. Esto asegura que la configuración de los medicamentos sea clara y organizada, minimizando la posibilidad de errores en la asignación y facilitando el seguimiento de las tomas.</p>
+
+    <h3>Asignación de Medicación a Celdas</h3>
+    <p>El diseño de MediApp sigue una regla de "un medicamento por celda". Esta decisión se tomó para reducir la carga cognitiva del paciente y ayudar a los cuidadores a organizar las dosis de manera eficiente. Al asignar un medicamento específico a cada celda, el paciente puede identificar fácilmente qué medicación debe tomar en cada momento, evitando confusiones que podrían ocurrir con múltiples medicamentos en una misma celda.</p>
+
+    <h3>Recordatorios de Toma de Medicación</h3>
+    <p>Cuando llega el momento de tomar una medicación, MediApp envía una notificación de pantalla completa que muestra el nombre del medicamento y la etiqueta de la celda (como “A1”). Además, el dispositivo micro:bit muestra la etiqueta de la celda y emite un sonido, ofreciendo un recordatorio auditivo y visual. Esto proporciona una experiencia accesible para el paciente, quien puede recibir el recordatorio de manera clara y sencilla.</p>
+
+    <h3>Justificación del Flujo</h3>
+    <p>El flujo de MediApp fue diseñado considerando las necesidades únicas de los pacientes con Alzheimer y sus cuidadores. La personalización del organizador, junto con las etiquetas físicas, ayuda a que el paciente relacione los recordatorios digitales y auditivos con el organizador físico, logrando una experiencia intuitiva y amigable. Al ofrecer un flujo claro y visualmente accesible, MediApp facilita la organización de medicamentos, disminuye el riesgo de errores y apoya una toma de medicación segura y constante.</p>
+</section>
+
+
+<<section>
+    <h2>Dificultades y Soluciones Implementadas</h2>
+    <p>Durante el desarrollo de MediApp, enfrentamos varios desafíos técnicos y de diseño que exigieron soluciones específicas para mantener la aplicación sencilla y accesible para los pacientes con Alzheimer y sus cuidadores. A continuación se detallan las dificultades principales y las soluciones implementadas:</p>
+
+    <ul>
+        <li><strong>Conectividad Bluetooth sin Emulador:</strong>
+            La falta de un emulador de Bluetooth nos obligó a probar la conectividad usando un teléfono y un dispositivo micro:bit físico, lo cual ralentizó el proceso de desarrollo.
+            <ul>
+                <li><em>Solución:</em> Implementamos un servicio en segundo plano para mantener activa la conexión Bluetooth entre el dispositivo y el micro:bit. Esto asegura que el paciente reciba recordatorios visuales y sonoros sin intervención manual, facilitando el uso continuo de la aplicación.</li>
+            </ul>
+        </li>
+
+        <li><strong>Notificaciones en Pantalla Completa en Modo "No Molestar":</strong>
+            Activar notificaciones de pantalla completa en dispositivos con “No Molestar” habilitado fue un desafío en React Native.
+            <ul>
+                <li><em>Solución:</em> Diseñamos una actividad de notificación en estilo alarma que sobresale de otras aplicaciones, asegurando que el recordatorio sea visible independientemente de la configuración del dispositivo. Esto permite que el paciente reciba el recordatorio a tiempo en cualquier circunstancia.</li>
+            </ul>
+        </li>
+
+        <li><strong>Sincronización entre el Servicio en Segundo Plano y las Actividades de la Aplicación:</strong>
+            La comunicación entre el servicio en segundo plano y las actividades de la aplicación requería una arquitectura de comunicación fluida.
+            <ul>
+                <li><em>Solución:</em> Implementamos una arquitectura basada en eventos mediante un EventEmitter, permitiendo que el estado de la conexión y las notificaciones se sincronicen en tiempo real. Esto brinda una experiencia fluida y sin interrupciones tanto para el paciente como para el cuidador.</li>
+            </ul>
+        </li>
+
+        <li><strong>Adaptación Visual del Organizador de Pastillas:</strong>
+            Crear un organizador de pastillas adaptativo que funcione en diferentes tamaños de dispositivos y configuraciones fue un desafío.
+            <ul>
+                <li><em>Solución:</em> Desarrollamos una vista previa adaptable y fácil de interpretar que permite a los cuidadores configurar celdas y asignar medicamentos de forma intuitiva. Esto ayuda al paciente a relacionar el recordatorio digital con la celda correcta en el organizador.</li>
+            </ul>
+        </li>
+
+        <li><strong>Persistencia del Selector de Idioma:</strong>
+            La necesidad de soportar múltiples idiomas con persistencia a través de reinicios planteó retos de implementación.
+            <ul>
+                <li><em>Solución:</em> Logramos que el idioma seleccionado se guarde y persista entre sesiones, permitiendo al cuidador ajustar el idioma una sola vez. Esta solución mejora la accesibilidad para usuarios en distintos contextos culturales y evita posibles confusiones.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>Gracias a estas soluciones, MediApp se convierte en una herramienta accesible y fiable para los pacientes y sus cuidadores, permitiendo una toma de medicación segura y constante a través de recordatorios claros y sincronizados con el organizador físico y el dispositivo micro:bit.</p>
+</section>
+
+<section>
+    <h2>Limitaciones del Proyecto</h2>
+    <p>Aunque MediApp demuestra cómo la tecnología puede ayudar a los pacientes con Alzheimer, existen varias limitaciones que deben tomarse en cuenta antes de considerar su uso más amplio. Estas limitaciones resaltan los desafíos en la implementación y el uso práctico del sistema.</p>
+
+    <ul>
+        <li><strong>Micro:bit como dispositivo portátil:</strong> La usabilidad del micro:bit como dispositivo portátil para pacientes no es ideal, ya que no está diseñado para llevarse como un accesorio de uso diario. Aunque una carcasa personalizada impresa en 3D podría mejorar la portabilidad, sigue siendo una solución cuestionable en comparación con dispositivos diseñados específicamente para llevarse puestos.</li>
+
+        <li><strong>Requisitos de conexión continua:</strong> Para enviar notificaciones, el micro:bit depende de la conexión Bluetooth al teléfono. Esta conexión se pierde fácilmente si el paciente se aleja del dispositivo. Aunque una solución sería implementar una lógica de notificación autónoma en el programa del micro:bit, esto puede complicar el flujo y la experiencia del usuario.</li>
+
+        <li><strong>Dependencia en teléfonos Android:</strong> MediApp asume que el paciente tiene acceso a un teléfono Android, lo cual puede ser poco práctico, ya que los smartphones pueden ser difíciles de manejar o frágiles para los pacientes. La necesidad de una interfaz más accesible o dispositivos alternativos sería ideal en un contexto real.</li>
+
+        <li><strong>Falta de notificaciones para el cuidador:</strong> Actualmente, MediApp no incluye un sistema de notificaciones para el cuidador, quien debe revisar directamente el teléfono del paciente para verificar el estado de la medicación. La implementación de notificaciones remotas para el cuidador sería un avance importante en la usabilidad de la aplicación.</li>
+    </ul>
+</section>
+
+
+<section>
+    <h2>Resumen</h2>
+    <p>Desarrollar MediApp fue un desafío interesante y gratificante. A pesar de que mi especialidad es el desarrollo backend y mi experiencia se centra principalmente en TypeScript, abordar un proyecto de desarrollo móvil fue una experiencia educativa que me permitió expandir mis habilidades.</p>
+
+    <p>Este proyecto se creó con el propósito exclusivo de servir como herramienta educativa, explorando cómo la tecnología puede apoyar a pacientes con Alzheimer. Como tal, MediApp no está diseñado para su uso en entornos de cuidado reales, y no existen planes para un desarrollo adicional o una implementación fuera de este contexto de aprendizaje.</p>
+
+    <p>A lo largo del desarrollo, enfrenté y resolví varios desafíos técnicos, especialmente en la conexión y sincronización de dispositivos mediante Bluetooth y la creación de una experiencia accesible para el usuario final. Este proyecto ha sido una valiosa oportunidad para aprender y experimentar con tecnologías móviles, reafirmando la importancia de un diseño centrado en el usuario en aplicaciones de salud.</p>
+</section>
+
+
+<footer>
+    <p>CETP-UTU | Instituto Tecnológico de Informática | Tecnicatura en Redes y Software | Ismail Valiev TA2 | <i class="fas fa-envelope"></i> <a href="mailto:molitor.konrad@gmail.com">Contacto</a></p>
+</footer>
+
+</body>
+</html>
